@@ -13,3 +13,25 @@
   border-radius: 10px;
   width: 200px;
 }
+.popup {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.popup-show {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out forwards, fadeOut 0.5s ease-in-out reverse 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
