@@ -5,6 +5,7 @@
     <script>
       Telegram.WebApp.expand();
     </script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,6 +32,13 @@
     <title>React App</title>
   </head>
   <body>
+  <div id="Connect"></div>
+  <script>
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+      manifestUrl: 'https://https://oris90-game-d9bc.twc1.net/tonconnect-manifest.json',
+      buttonRootId: 'Connect'
+    });
+  </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
