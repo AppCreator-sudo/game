@@ -1,88 +1,47 @@
-  .App {
-    text-align: center;
-  }
+#Connect {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+}
+    /* Контейнер для центрирования содержимого */
 
-  .App-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-
-  #Connect {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-  }
-
-  .lottery-image {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    border-radius: 10px;
-    width: 200px;
-    cursor: pointer;
-    margin-bottom: 20px; /* Добавлен отступ снизу */
-  }
-
-  .popup {
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  }
-
-  .popup-show {
-    display: block;
-    animation: fadeIn 0.5s ease-in-out forwards, fadeOut 0.5s ease-in-out reverse 2s;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+.container {
+      width: 100%; /* Ширина контейнера теперь занимает всю ширину экрана */
+      height: 100vh; /* Высота контейнера занимает 100% высоты окна */
+      display: flex;
+      justify-content: center; /* Центрирование по горизонтали */
+      align-items: center; /* Центрирование по вертикали */
+      flex-direction: column; /* Расположение элементов по вертикали */
+      margin: 0; /* Убираем внешние отступы */
+      text-align: center; /* Центрирование текста внутри контейнера */
     }
-    to {
-      opacity: 1;
+
+    /* Стили для кнопки с изображением */
+    .transfer-button {
+      border: none; /* Убираем рамку кнопки */
+      padding: 0; /* Убираем отступы */
+      background: none; /* Убираем фон кнопки */
+      margin-top: 20px; /* Отступ сверху */
     }
-  }
 
+    /* Стили для изображения внутри кнопки */
+    .transfer-button img {
+      width: 200px; /* Размер изображения */
+      height: auto; /* Сохранение пропорций */
+    }
 
+    /* Стили для контейнера с текстом джекпота */
+    .jackpot-container {
+      border: 2px solid #035aec; /* Цвет и толщина рамки */
+      border-radius: 10px; /* Скругление углов рамки */
+      padding: 10px 20px; /* Отступы внутри рамки */
+      margin-bottom: 20px; /* Отступ снизу */
+      background-color: #f0f0f0; /* Фоновый цвет контейнера */
+    }
 
-
-  button, a {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50px; /* Смещение кнопки вниз от верхнего края */
-  }
-
-  .container {
-    text-align: center;
-  }
-
-  .transfer-button {
-    position: relative; /* Позволяет использовать top */
-    top: 180px; /* Сдвинуть кнопку вниз на 20px */
-    padding: 10px 20px;
-    background-color: #035aec;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  .transfer-button:hover {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: #7598dd;
-  }
+    /* Стили для текста джекпота */
+    .jackpot-text {
+      font-size: 18px; /* Размер шрифта */
+      color: #035aec; /* Цвет шрифта */
+      margin: 0; /* Убираем внешние отступы */
+    }
