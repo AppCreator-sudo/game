@@ -50,28 +50,39 @@
     }
   }
 
-  /* Стили для кнопки пополнения баланса */
-  .top-up-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-  }
 
-  .top-up-button:hover {
-    background-color: #45a049;
-  }
-  /* Новый стиль для отображения баланса */
-  .balance-display {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffffff; /* Белый цвет текста */
-  }
+
+
   button, a {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px; /* Смещение кнопки вниз от верхнего края */
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .transfer-button {
+    position: relative; /* Позволяет использовать top */
+    top: 180px; /* Сдвинуть кнопку вниз на 20px */
+    padding: 10px 20px;
+    background-color: #035aec;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .transfer-button:hover {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #7598dd;
   }
