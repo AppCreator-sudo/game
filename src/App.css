@@ -1,73 +1,77 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-#Connect {
-  position: absolute;
-  top: 2%;
-  right: 2%;
-}
-
-.lottery-image {
-  border-radius: 10px;
-  width: 200px;
-  cursor: pointer;
-  margin-bottom: 20px; /* Добавлен отступ снизу */
-}
-
-.popup {
-  top: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.popup-show {
-  display: block;
-  animation: fadeIn 0.5s ease-in-out forwards, fadeOut 0.5s ease-in-out reverse 2s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .App {
+    text-align: center;
   }
-  to {
-    opacity: 1;
+
+  .App-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
-}
 
-/* Стили для кнопки пополнения баланса */
-.top-up-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
-}
+  #Connect {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+  }
 
-.top-up-button:hover {
-  background-color: #45a049;
-}
-/* Новый стиль для отображения баланса */
-.balance-display {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff; /* Белый цвет текста */
-}
+  .lottery-image {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    width: 200px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Добавлен отступ снизу */
+  }
+
+  .popup {
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .popup-show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out forwards, fadeOut 0.5s ease-in-out reverse 2s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Стили для кнопки пополнения баланса */
+  .top-up-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .top-up-button:hover {
+    background-color: #45a049;
+  }
+  /* Новый стиль для отображения баланса */
+  .balance-display {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff; /* Белый цвет текста */
+  }
+  button, a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
