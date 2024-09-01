@@ -10,19 +10,14 @@
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta
-          name="description"
-          content="Web site created using create-react-app"
-  />
+  <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
   <title>Lottery App</title>
 </head>
 <body>
 <div class="container">
-  <button class="transfer-button" onclick="transaction">Купить Билет</button>
+  <button class="transfer-button" onclick="startTransaction()">Купить Билет</button>
 </div>
 <div id="Connect"></div>
 <script>
@@ -30,24 +25,24 @@
     manifestUrl: 'https://oris90-game-d9bc.twc1.net/tonconnect-manifest.json',
     buttonRootId: 'Connect'
   });
-</script>
-<script>
-  async function transaction() {
+
+  function startTransaction() {
     const transaction = {
-      validUntil: Math.round(Date.now() / 1000) + 10,
       messages: [
         {
-          address: "UQDOTWT4TqDxyzDT62Khya1GnNNm-THQNsZO83S_ViBxw1ob",
-          amount: "10000000" //0.01 TON
+          address: "UQDOTWT4TqDxyzDT62Khya1GnNNm-THQNsZO83S_ViBxw1ob", // updated destination address
+          amount: "20000000" // Toncoin in nanotons (0.02 TON)
         }
       ]
     };
 
-    try {
-      await tonConnectUI.sendTransaction(transaction);
-    } catch (e) {
-      console.error(e);
-    }
+    tonConnectUI.sendTransaction(transaction)
+            .then(result => {
+              console.log("Transaction successful", result);
+            })
+            .catch(error => {
+              console.error("Transaction failed", error);
+            });
   }
 </script>
 <noscript>You need to enable JavaScript to run this app.</noscript>
