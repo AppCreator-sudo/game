@@ -17,7 +17,7 @@
     }
 
     /* Стили для кнопки с изображением */
-    .transfer-button {
+.transfer-button {
       border: none; /* Убираем рамку кнопки */
       padding: 0; /* Убираем отступы */
       background: none; /* Убираем фон кнопки */
@@ -25,13 +25,13 @@
     }
 
     /* Стили для изображения внутри кнопки */
-    .transfer-button img {
+.transfer-button img {
       width: 200px; /* Размер изображения */
       height: auto; /* Сохранение пропорций */
     }
 
     /* Стили для контейнера с текстом джекпота */
-    .jackpot-container {
+.jackpot-container {
       border: 2px solid #035aec; /* Цвет и толщина рамки */
       border-radius: 10px; /* Скругление углов рамки */
       padding: 10px 20px; /* Отступы внутри рамки */
@@ -40,8 +40,20 @@
     }
 
     /* Стили для текста джекпота */
-    .jackpot-text {
+.jackpot-text {
       font-size: 18px; /* Размер шрифта */
       color: #035aec; /* Цвет шрифта */
       margin: 0; /* Убираем внешние отступы */
     }
+.popup {
+    position: fixed; /* Меняем position на fixed, чтобы окно располагалось относительно экрана */
+    top: 50%; /* Расположение по вертикали по центру */
+    left: 50%; /* Расположение по горизонтали по центру */
+    transform: translate(-50%, -50%); /* Сдвиг для абсолютного центрирования */
+    display: none; /* Скрываем окно по умолчанию */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Повышаем z-index, чтобы окно было поверх других элементов */
+}

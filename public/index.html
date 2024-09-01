@@ -18,12 +18,19 @@
 <body>
 <div class="container">
   <div class="jackpot-container">
-    <p class="jackpot-text">Current Jackpot 25,000 NOT</p>
+    <p class="jackpot-text">Текущий Джек пот 100,000 NOT</p>
   </div>
   <button class="transfer-button" onclick="startTransaction()">
-    <img src="lottery-button.png" alt="Buy a Ticket" />
+    <img src="lottery-button.png" alt="Купить Билет">
   </button>
 </div>
+
+<!-- Всплывающее окно -->
+<div id="popup" class="popup">
+  <p>Ваш билет успешно приобретен!</p>
+  <button onclick="closePopup()">Закрыть</button>
+</div>
+
 <div id="Connect"></div>
 <script>
   const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
@@ -35,22 +42,29 @@
     const transaction = {
       messages: [
         {
-          address: "UQDOTWT4TqDxyzDT62Khya1GnNNm-THQNsZO83S_ViBxw1ob", // updated destination address
-          amount: "20000000" // Toncoin in nanotons (0.02 TON)
+          address: "UQC0O2d2QKYN9Cg3nbMMw08HCFCrtCh2Mj2T8gtLiCCkTR7V",
+          amount: "1000000" //Toncoin в нанотонах
         }
       ]
     };
 
     tonConnectUI.sendTransaction(transaction)
-            .then(result => {
-              console.log("Transaction successful", result);
+            .then(() => {
+              // Если транзакция прошла успешно, показать всплывающее окно
+              const popup = document.getElementById('popup');
+              popup.style.display = 'block';
+
+              // Закрыть всплывающее окно через 3 секунды
+              setTimeout(() => {
+                popup.style.display = 'none';
+              }, 3000);
             })
-            .catch(error => {
-              console.error("Transaction failed", error);
+            .catch((error) => {
+              // Если произошла ошибка, можно показать сообщение или выполнить другие действия
+              console.error('Транзакция не выполнена:', error);
+              alert('Недостаточно средств или произошла ошибка при выполнении транзакции.');
             });
   }
 </script>
-<noscript>You need to enable JavaScript to run this app.</noscript>
-<div id="root"></div>
 </body>
 </html>
