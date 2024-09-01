@@ -4,6 +4,7 @@
 
 .App-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -18,9 +19,12 @@
 .lottery-image {
   border-radius: 10px;
   width: 200px;
+  cursor: pointer;
+  margin-bottom: 20px; /* Добавлен отступ снизу */
 }
+
 .popup {
-  top: 300px;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
   display: none;
@@ -43,4 +47,27 @@
   to {
     opacity: 1;
   }
+}
+
+/* Стили для кнопки пополнения баланса */
+.top-up-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.top-up-button:hover {
+  background-color: #45a049;
+}
+/* Новый стиль для отображения баланса */
+.balance-display {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff; /* Белый цвет текста */
 }
