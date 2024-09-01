@@ -34,7 +34,7 @@ function App() {
                 validUntil: Math.round(Date.now() / 1000) + 600, // 10 минут
                 messages: [
                     {
-                        address: 'ВАШ_АДРЕС_ДЛЯ_ПОПОЛНЕНИЯ',
+                        address: 'UQDOTWT4TqDxyzDT62Khya1GnNNm-THQNsZO83S_ViBxw1ob',
                         amount: '10000000', // 1 TON в нанотонах (0.01)
                         stateInit: ''
                     }
