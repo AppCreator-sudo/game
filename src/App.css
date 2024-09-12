@@ -33,7 +33,7 @@
     /* Стили для контейнера с текстом джекпота */
 .jackpot-container {
       border: 2px solid #035aec; /* Цвет и толщина рамки */
-      border-radius: 10px; /* Скругление углов рамки */
+      border-radius: 30px; /* Скругление углов рамки */
       padding: 10px 20px; /* Отступы внутри рамки */
       margin-bottom: 20px; /* Отступ снизу */
       background-color: #f0f0f0; /* Фоновый цвет контейнера */
