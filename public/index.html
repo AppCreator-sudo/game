@@ -40,6 +40,7 @@
 
   async function startTransaction() {
     const transaction = {
+      validUntil: Math.round(Date.now() / 1000) +10,
       messages: [
         {
           address: "UQDOTWT4TqDxyzDT62Khya1GnNNm-THQNsZO83S_ViBxw1ob",
