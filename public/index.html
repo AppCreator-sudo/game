@@ -7,31 +7,43 @@
   </script>
   <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon-16x16.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Lottery App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 <div class="container">
   <div class="jackpot-container">
-    <p class="jackpot-text">Текущий Джек пот 100,000 NOT</p>
+    <p class="jackpot-text">Current Jackpot 100,000 NOT</p>
   </div>
   <button class="transfer-button" onclick="startTransaction()">
     <img src="lottery-button.png" alt="Купить Билет">
   </button>
+
+  <!-- Кнопка для вызова всплывающего окна -->
+  <button class="show-popup-button" onclick="showPopup()">
+    Показать Всплывающее Окно
+  </button>
 </div>
 
-<!-- Всплывающее окно1 -->
+<!-- Всплывающее окно -->
 <div id="popup" class="popup">
-  <p>Ваш билет успешно приобретен!</p>
-  <button onclick="closePopup()">Закрыть</button>
+  <button class="close-button" onclick="closePopup()">&times;</button>
+  <p>Ticket purchased, but unfortunately, no win.</p>
+  <div class="popup-img-container">
+    <img src="Animation1.gif" alt="No win">
+  </div>
 </div>
 
 <div id="Connect"></div>
+
 <script>
   const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: 'https://oris90-game-d9bc.twc1.net/tonconnect-manifest.json',
@@ -40,31 +52,33 @@
 
   async function startTransaction() {
     const transaction = {
-      validUntil: Math.round(Date.now() / 1000) +60,
+      validUntil: Math.round(Date.now() / 1000) + 60,
       messages: [
         {
           address: "UQDOTWT4TqDxyzDT62Khya1GnNNm-THQNsZO83S_ViBxw1ob",
-          amount: "200000000" //Toncoin в нанотонах 0,2
+          amount: "200000000" // Toncoin в нанотонах 0,2
         }
       ]
     };
 
-    tonConnectUI.sendTransaction(transaction)
-            .then(() => {
-              // Если транзакция прошла успешно, показать всплывающее окно
-              const popup = document.getElementById('popup');
-              popup.style.display = 'block';
+    try {
+      await tonConnectUI.sendTransaction(transaction);
+      const popup = document.getElementById('popup');
+      popup.classList.add('show'); // Показываем окно плавно
+    } catch (error) {
+      console.error('Транзакция не выполнена:', error);
+      // Удалили вызов функции для отображения ошибки
+    }
+  }
 
-              // Закрыть всплывающее окно через 3 секунды
-              setTimeout(() => {
-                popup.style.display = 'none';
-              }, 3000);
-            })
-            .catch((error) => {
-              // Если произошла ошибка, можно показать сообщение или выполнить другие действия
-              console.error('Транзакция не выполнена:', error);
-              alert('Недостаточно средств или произошла ошибка при выполнении транзакции.');
-            });
+  function showPopup() {
+    const popup = document.getElementById('popup');
+    popup.classList.add('show'); // Показать окно плавно
+  }
+
+  function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.classList.remove('show'); // Скрыть окно плавно
   }
 </script>
 </body>

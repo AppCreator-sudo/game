@@ -1,59 +1,111 @@
 #Connect {
   position: absolute;
-  top: 3%;
+  top: 5%;
   right: 5%;
 }
     /* Контейнер для центрирования содержимого */
+.show-popup-button {
+    display: none; /*СКРЫВАЕТ КНОПКУ ПОКАЗА КНОПКИ ДЛЯ POPUP, ДЛЯ ВЁРСТКИ НУЖНО ЭТО ОТКЛЮЧАТЬ */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Убедитесь, что высота HTML и BODY также 100% */
+}
 
 .container {
-      width: 100%; /* Ширина контейнера теперь занимает всю ширину экрана */
-      height: 100vh; /* Высота контейнера занимает 100% высоты окна */
-      display: flex;
-      justify-content: center; /* Центрирование по горизонтали */
-      align-items: center; /* Центрирование по вертикали */
-      flex-direction: column; /* Расположение элементов по вертикали */
-      margin: 0; /* Убираем внешние отступы */
-      text-align: center; /* Центрирование текста внутри контейнера */
-    }
+    width: 100%;
+    height: 100vh; /* Занимает 100% высоты экрана */
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    flex-direction: column;
+    text-align: center;
+}
 
-    /* Стили для кнопки с изображением */
 .transfer-button {
-      border: none; /* Убираем рамку кнопки */
-      padding: 0; /* Убираем отступы */
-      background: none; /* Убираем фон кнопки */
-      margin-top: 20px; /* Отступ сверху */
-    }
+    border: none;
+    padding: 0;
+    background: none;
+    margin-top: 20px;
+}
 
-    /* Стили для изображения внутри кнопки */
 .transfer-button img {
-      width: 200px; /* Размер изображения */
-      height: auto; /* Сохранение пропорций */
-    }
+    width: 200px;
+    height: auto;
+}
 
-    /* Стили для контейнера с текстом джекпота */
 .jackpot-container {
-      border: 2px solid #035aec; /* Цвет и толщина рамки */
-      border-radius: 30px; /* Скругление углов рамки */
-      padding: 10px 20px; /* Отступы внутри рамки */
-      margin-bottom: 20px; /* Отступ снизу */
-      background-color: #f0f0f0; /* Фоновый цвет контейнера */
-    }
+    background-color: #fff; /* Фон белый, как у popup */
+    padding: 20px; /* Больше внутреннего отступа */
+    width: 256px; /* Ширина такая же, как у popup */
+    border-radius: 16px; /* Скругление углов 16px */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Тень такая же, как у popup */
+    margin-bottom: 20px; /* Отступ снизу */
+    text-align: center; /* Центрируем текст */
+}
 
-    /* Стили для текста джекпота */
 .jackpot-text {
-      font-size: 18px; /* Размер шрифта */
-      color: #035aec; /* Цвет шрифта */
-      margin: 0; /* Убираем внешние отступы */
-    }
+    font-size: 22px; /* Размер шрифта можно оставить прежним */
+
+    margin: 0;
+    font-weight: 600; /* Сделаем текст немного жирнее */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600; /* Немного жирнее */
+}
+
 .popup {
-    position: fixed; /* Меняем position на fixed, чтобы окно располагалось относительно экрана */
-    top: 50%; /* Расположение по вертикали по центру */
-    left: 50%; /* Расположение по горизонтали по центру */
-    transform: translate(-50%, -50%); /* Сдвиг для абсолютного центрирования */
-    display: none; /* Скрываем окно по умолчанию */
+    font-size: 18px;
+    position: fixed;
+    top: calc(50% - 100px);
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* Повышаем1 z-index, чтобы окно было поверх других элементов */
+    width: 256px; /* Ширина 256px */
+    border-radius: 16px; /* Скругление углов 16px */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Глубокая тень */
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+.popup p {
+    margin: 0 0 10px 0;
+}
+
+.popup-img-container {
+    margin-top: 10px;
+}
+
+.popup-img-container img {
+    width: 80px;
+    height: 80px;
 }
