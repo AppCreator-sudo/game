@@ -21,17 +21,24 @@
 <body>
 <div class="container">
   <div class="jackpot-container">
+    <img src="Gem.gif" alt="GIF" class="jackpot-gif"> <!-- Левая GIF -->
     <p class="jackpot-text">Current Jackpot 100,000 NOT</p>
+    <img src="Gem.gif" alt="GIF" class="jackpot-gif"> <!-- Правая GIF -->
   </div>
   <button class="transfer-button" onclick="startTransaction()">
     <img src="lottery-button.png" alt="Купить Билет">
   </button>
-
-  <!-- Кнопка для вызова всплывающего окна -->
-  <button class="show-popup-button" onclick="showPopup()">
-    Показать Всплывающее Окно
-  </button>
 </div>
+
+<!-- Всплывающее окно -->
+<div id="popup" class="popup">
+  <button class="close-button" onclick="closePopup()">&times;</button>
+  <p>Ticket purchased, but unfortunately, no win.</p>
+  <div class="popup-img-container">
+    <img src="Animation1.gif" alt="No win">
+  </div>
+</div>
+
 
 <!-- Всплывающее окно -->
 <div id="popup" class="popup">

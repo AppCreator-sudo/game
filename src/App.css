@@ -3,6 +3,10 @@
   top: 5%;
   right: 5%;
 }
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
     /* Контейнер для центрирования содержимого */
 .show-popup-button {
     display: none; /*СКРЫВАЕТ КНОПКУ ПОКАЗА КНОПКИ ДЛЯ POPUP, ДЛЯ ВЁРСТКИ НУЖНО ЭТО ОТКЛЮЧАТЬ */
@@ -45,17 +49,20 @@ html, body {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Тень */
     margin-bottom: 20px;
     text-align: center;
+    display: flex;
+    justify-content: space-between; /* Распределение пространства между элементами */
+    align-items: center; /* Выравнивание элементов по вертикали */
 }
 
 .jackpot-text {
     font-size: 22px;
-    margin: 0;
+    margin: 0 10px; /* Отступы от GIF */
     font-weight: 600;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+.jackpot-gif {
+    width: 40px; /* Ширина GIF */
+    height: 40px; /* Высота GIF */
 }
 
 .popup {
