@@ -37,25 +37,25 @@ html, body {
 }
 
 .jackpot-container {
-    background-color: #fff; /* Фон белый, как у popup */
-    padding: 20px; /* Больше внутреннего отступа */
-    width: 256px; /* Ширина такая же, как у popup */
-    border-radius: 16px; /* Скругление углов 16px */
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Тень такая же, как у popup */
-    margin-bottom: 20px; /* Отступ снизу */
-    text-align: center; /* Центрируем текст */
+    background-color: ButtonFace; /* Системный цвет для фона */
+    color: ButtonText; /* Системный цвет для текста */
+    padding: 20px;
+    width: 256px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Тень */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .jackpot-text {
-    font-size: 22px; /* Размер шрифта можно оставить прежним */
-
+    font-size: 22px;
     margin: 0;
-    font-weight: 600; /* Сделаем текст немного жирнее */
+    font-weight: 600;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    font-weight: 600; /* Немного жирнее */
+    font-weight: 600;
 }
 
 .popup {
@@ -64,11 +64,12 @@ body {
     top: calc(50% - 100px);
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: ButtonFace; /* Системный цвет для фона */
+    color: ButtonText; /* Системный цвет для текста */
     padding: 20px;
-    width: 256px; /* Ширина 256px */
-    border-radius: 16px; /* Скругление углов 16px */
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Глубокая тень */
+    width: 256px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -78,7 +79,6 @@ body {
     align-items: center;
     text-align: center;
 }
-
 
 .popup.show {
     opacity: 1;
@@ -94,7 +94,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    color: #000;
+    color: ButtonText; /* Системный цвет для текста */
 }
 
 .popup p {
