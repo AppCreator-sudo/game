@@ -63,6 +63,7 @@ html, body {
 .jackpot-gif {
     width: 40px; /* Ширина GIF */
     height: 40px; /* Высота GIF */
+    display: inline-block; /* Отображение как блок */
 }
 
 .popup {
