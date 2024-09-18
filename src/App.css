@@ -117,3 +117,83 @@ html, body {
     width: 80px;
     height: 80px;
 }
+
+
+
+/* Анимация для заставки*/
+/* Общий стиль для заставки */
+.splash-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Высота 100% экрана */
+    background-color: #ffef31; /* Фон заставки */
+    transition: opacity 1s ease; /* Плавное изменение прозрачности */
+    opacity: 1; /* Изначальная видимость */
+}
+
+.splash-screen.fade-out {
+    opacity: 0; /* Прозрачность для скрытия */
+}
+
+/* Текст для заставки */
+.splash-text {
+    text-align: center;
+    font-size: 48px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    color: #000000; /* Цвет текста */
+    line-height: 1.2; /* Межстрочный интервал */
+}
+
+.tracking-in-expand {
+    -webkit-animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/* Анимация появления текста */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* градиент приложения */
+body {
+    background: linear-gradient(149deg, rgba(24,187,156,1) 0%, rgba(106,57,175,1) 42%, rgba(187,24,148,1) 72%, rgba(115,53,134,1) 100%);
+    animation: gradient 10s infinite linear;
+    background-size: 400%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 80% 0%;
+    }
+    50% {
+        background-position: 20% 100%;
+    }
+    100% {
+        background-position: 80% 0%;
+    }
+}

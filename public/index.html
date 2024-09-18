@@ -19,6 +19,14 @@
 
 </head>
 <body>
+<!-- заставка -->
+<div class="splash-screen">
+  <div class="splash-text tracking-in-expand">
+    <span>ONE</span><br>
+    <span>CLICK</span><br>
+    <span>LOTTERY</span>
+  </div>
+</div>
 <div class="container">
   <div class="jackpot-container">
     <img src="Gem.gif" alt="GIF" class="jackpot-gif"> <!-- Левая GIF -->
@@ -40,6 +48,8 @@
 </div>
 
 
+
+
 <!-- Всплывающее окно -->
 <div id="popup" class="popup">
   <button class="close-button" onclick="closePopup()">&times;</button>
@@ -52,6 +62,19 @@
 <div id="Connect"></div>
 
 <script>
+  window.onload = function() {
+    setTimeout(function() {
+      // Добавляем класс для плавного исчезновения
+      document.querySelector('.splash-screen').classList.add('fade-out');
+
+      // После завершения анимации скрываем элемент
+      setTimeout(function() {
+        document.querySelector('.splash-screen').style.display = 'none';
+      }, 1000); // Время должно совпадать с временем анимации в CSS (1 секунда)
+    }, 3000); // Пауза перед закрытием (3 секунды)
+  };
+
+
   const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: 'https://oris90-game-d9bc.twc1.net/tonconnect-manifest.json',
     buttonRootId: 'Connect'
