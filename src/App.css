@@ -127,7 +127,7 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Высота 100% экрана */
-    background-color: #ffef31; /* Фон заставки */
+    background-color: #0087cb; /* Фон заставки */
     transition: opacity 1s ease; /* Плавное изменение прозрачности */
     opacity: 1; /* Изначальная видимость */
 }
@@ -139,10 +139,11 @@ html, body {
 /* Текст для заставки */
 .splash-text {
     text-align: center;
-    font-size: 48px; /* Размер шрифта */
+    font-size: 58px; /* Размер шрифта */
     font-weight: bold; /* Жирный шрифт */
     color: #000000; /* Цвет текста */
-    line-height: 1.2; /* Межстрочный интервал */
+    line-height: 1.8; /* Межстрочный интервал */
+    margin-top: -180px; /* Поднимает блок вверх */
 }
 
 .tracking-in-expand {
