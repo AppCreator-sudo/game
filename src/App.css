@@ -55,7 +55,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Центрируем текст по вертикали */
-    margin-top: -80px;
+    margin-top: -30px;
 }
 
 
