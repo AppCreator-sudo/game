@@ -42,23 +42,58 @@ html, body {
 }
 
 .jackpot-container {
-    background-color: ButtonFace; /* Системный цвет для фона */
-    color: ButtonText; /* Системный цвет для текста */
-    padding: 20px;
-    width: 236px;
+    background-color: ButtonFace;
+    color: ButtonText;
+    padding: 20px; /* Уменьшаем отступы */
+    margin-bottom: 20px;
+    width: 200px;
+    height: 80px; /* Устанавливаем фиксированную высоту */
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16); /* Тень */
-    margin-bottom: 60px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
     text-align: center;
     display: flex;
-    justify-content: space-between; /* Распределение пространства между элементами */
-    align-items: center; /* Выравнивание элементов по вертикали */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Центрируем текст по вертикали */
     margin-top: -180px;
+}
+
+
+.wallet-container {
+    background-color: ButtonFace;
+    color: ButtonText;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wallet-info {
+    font-size: 22px;
+    font-weight: 600;
+    opacity: 0;
+    animation: wallet-fade 5s forwards; /* Увеличьте длительность */
+}
+.fixed-text {
+    font-size: 22px; /* Размер шрифта для фиксированного текста */
+    font-weight: bold; /* Жирный текст */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+@keyframes wallet-fade {
+    0% { opacity: 0; transform: translateY(20px); }
+    50% { opacity: 1; transform: translateY(0); } /* Появление */
+    100% { opacity: 0; transform: translateY(-20px); } /* Исчезновение */
 }
 
 .jackpot-text {
     font-size: 22px;
-    margin: 0 10px; /* Отступы от GIF */
     font-weight: 600;
 }
 

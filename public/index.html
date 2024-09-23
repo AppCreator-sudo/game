@@ -28,12 +28,16 @@
 
 <div class="container">
   <div class="jackpot-container">
-    <img src="Gem.gif" alt="GIF" class="jackpot-gif"> <!-- Левая GIF  -->
-    <p class="jackpot-text">This week's top prize 100,000 NOT</p>
-    <img src="Gem.gif" alt="GIF" class="jackpot-gif"> <!-- Правая GIF -->
+    <p class="jackpot-text">This week's top prize 50,000 TON</p>
   </div>
+  <div class="wallet-container">
+    <div class="fixed-text">Winnings of the day:</div>
+    <div class="wallet-info" id="wallet-address"></div>
+    <div class="wallet-info" id="wallet-amount"></div>
+  </div>
+
   <button class="transfer-button" onclick="startTransaction()">
-    <img src="download.png" alt="Купить Билет">
+    <img src="lottery-button.png" alt="Купить Билет">
   </button>
 </div>
 
@@ -49,6 +53,38 @@
 <div id="Connect"></div>
 
 <script>
+  function generateRandomWallet() {
+    const randomAddress = `EQ${Math.random().toString(36).substring(2, 10)}...`; // Генерация случайного адреса
+    const randomAmount = (Math.random() * (100 - 0.2) + 0.2).toFixed(2); // Генерация случайной суммы от 0.2 до 100
+    return { address: randomAddress, amount: randomAmount };
+  }
+
+  function getRandomWallet() {
+    const wallet = generateRandomWallet();
+
+    // Получаем элементы
+    const walletAddressElement = document.getElementById('wallet-address');
+    const walletAmountElement = document.getElementById('wallet-amount');
+
+    // Обновляем текст
+    walletAddressElement.textContent = wallet.address;
+    walletAmountElement.textContent = `${wallet.amount} TON`;
+
+    // Убираем предыдущую анимацию
+    walletAddressElement.classList.remove('wallet-info');
+    walletAmountElement.classList.remove('wallet-info');
+
+    // Перезапускаем анимацию
+    void walletAddressElement.offsetWidth;
+    walletAddressElement.classList.add('wallet-info');
+
+    void walletAmountElement.offsetWidth;
+    walletAmountElement.classList.add('wallet-info');
+  }
+
+  // Вызываем функцию для обновления кошельков каждые 5 секунд
+  setInterval(getRandomWallet, 5000);
+
   window.onload = function() {
     setTimeout(function() {
       // Добавляем класс для плавного исчезновения
