@@ -17,6 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<h1>Redirecting to Telegram...</h1>
+<p>If the redirect doesn't work, <a href="https://t.me/simplay_bot">click here to open in Telegram</a>.</p>
 <!-- заставка -->
 <div class="splash-screen">
   <div class="splash-text tracking-in-expand">
@@ -55,13 +57,16 @@
 <script>
 
   window.onload = function() {
-    // Пробуем открыть Telegram через URL-схему
-    window.location.href = "tg://resolve?domain=simplay_bot";
+    // Проверяем, работает ли схема для Telegram
+    const telegramUrl = "tg://resolve?domain=simplay_bot";
+    const fallbackUrl = "https://t.me/simplay_bot";
 
-    // Если Telegram не установлен, выполняем резервный редирект через 1 секунду
+    // Попытка открыть Telegram через схему
     setTimeout(function() {
-      window.location.href = "https://t.me/simplay_bot";
-    }, 1500); // 1.5 секунды перед резервным редиректом
+      window.location.href = fallbackUrl;
+    }, 2000); // Если Telegram не открывается, перенаправляем на веб-версию через 2 сек.
+
+    window.location.href = telegramUrl;
   };
 
 
