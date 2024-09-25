@@ -54,28 +54,24 @@
 <script>
 
   window.onload = function() {
-    // Инициализируем Telegram окружение
-    Telegram.WebApp.expand();
+    // Проверка, открыто ли приложение внутри Telegram Web App
+    if (typeof Telegram !== 'undefined' && Telegram.WebApp.initData) {
+      // Telegram Web App запущен, не делаем редирект
+      return;
+    }
 
-    // Показываем заставку и скрываем её после 3 секунд
-    setTimeout(function() {
-      document.querySelector('.splash-screen').classList.add('fade-out');
-      setTimeout(function() {
-        document.querySelector('.splash-screen').style.display = 'none';
-      }, 1000);
-    }, 3000);
-
-    // Попытка редиректа в Telegram
+    // Если приложение не запущено в Telegram, делаем редирект
     const telegramUrl = "tg://resolve?domain=simplay_bot";
     const fallbackUrl = "https://t.me/simplay_bot";
 
     // Попытка открыть Telegram через схему
     setTimeout(function() {
       window.location.href = fallbackUrl;
-    }, 2000); // Если Telegram не открывается, перенаправляем на веб-версию через 2 сек.
+    }, 2000);
 
     window.location.href = telegramUrl;
   };
+
 
   function generateRandomWallet() {
     const randomAddress = `EQ${Math.random().toString(36).substring(2, 10)}...`; // Генерация случайного адреса
