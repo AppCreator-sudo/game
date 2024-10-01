@@ -25,7 +25,8 @@
     <span>LOTTERY</span>
   </div>
 </div>
-
+<!-- Кнопка подключения кошелька -->
+<div id="Connect" class="connect-wallet-button"></div>
 <div class="container">
   <div class="jackpot-container">
     <p class="jackpot-text">This week's top prize: 50,000 TON</p>
@@ -36,6 +37,9 @@
     <div class="wallet-info" id="wallet-amount"></div>
   </div>
 
+
+
+  <!-- Кнопка покупки билета -->
   <button class="transfer-button" onclick="startTransaction()">
     <img src="lottery-button.png" alt="Buy Ticket">
   </button>
@@ -49,8 +53,6 @@
     <img src="Animation1.gif" alt="Processing">
   </div>
 </div>
-
-<div id="Connect"></div>
 
 <script>
   function generateRandomWallet() {

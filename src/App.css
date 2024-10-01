@@ -42,7 +42,8 @@ html, body {
 }
 
 .jackpot-container {
-    background-color: ButtonFace;
+    background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
+    backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
     padding: 20px; /* Уменьшаем отступы */
     margin-bottom: 20px;
@@ -55,12 +56,13 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Центрируем текст по вертикали */
-    margin-top: -30px;
+    margin-top: -160px;
 }
 
 
 .wallet-container {
-    background-color: ButtonFace;
+    background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
+    backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
     padding: 20px;
     margin-bottom: 20px;
