@@ -15,7 +15,9 @@
     width: 300px;
     height: 60px;
     border-radius: 25px;
-    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
+    box-shadow:
+            0 20px 35px rgba(0, 0, 0, 0.6), /* черная тень вниз */
+            0 -10px 20px rgb(255, 255, 255, 0.4); /* белая тень вверх */
     display: flex; /* Для выравнивания элементов в ряд */
     align-items: center; /* Выравнивание по вертикали */
     justify-content: flex-start; /* Выравнивание по горизонтали */
@@ -38,11 +40,6 @@
 body {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-}
-
-/* Контейнер для центрирования содержимого */
-.show-popup-button {
-    display: none; /* СКРЫВАЕТ КНОПКУ ПОКАЗА КНОПКИ ДЛЯ POPUP, ДЛЯ ВЁРСТКИ НУЖНО ЭТО ОТКЛЮЧАТЬ */
 }
 
 html, body {
@@ -82,7 +79,9 @@ html, body {
     width: 300px;
     height: 60px; /* Устанавливаем фиксированную высоту */
     border-radius: 25px;
-    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
+    box-shadow:
+            0 20px 35px rgba(0, 0, 0, 0.6), /* черная тень вниз */
+            0 -10px 20px rgb(255, 255, 255, 0.4); /* белая тень вверх */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -100,7 +99,9 @@ html, body {
     margin-bottom: 5px;
     width: 300px;
     border-radius: 25px;
-    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
+    box-shadow:
+            0 20px 35px rgba(0, 0, 0, 0.6), /* черная тень вниз */
+            0 -10px 20px rgb(255, 255, 255, 0.4); /* белая тень вверх */
     margin-top: 20px;
     text-align: center;
     display: flex;
