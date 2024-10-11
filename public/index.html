@@ -37,13 +37,11 @@
     <div class="wallet-info" id="wallet-amount"></div>
   </div>
 
-
-
   <!-- Кнопка покупки билета -->
-  <button class="transfer-button" onclick="startTransaction()">
-    <img src="lottery-button.png" alt="Buy Ticket">
-  </button>
-</div>
+  <div class="buy-ticket-container">
+    <img src="lottery-button.png" alt="Ticket Icon"> <!-- Картинка билета -->
+    <span class="buy-ticket-text">Buy one ticket 0.2 TON</span> <!-- Текст -->
+  </div>
 
 <!-- Всплывающее окно -->
 <div id="popup" class="popup">
@@ -55,12 +53,14 @@
 </div>
 
 <script>
+  // Функция для генерации случайного кошелька
   function generateRandomWallet() {
     const randomAddress = `EQ${Math.random().toString(36).substring(2, 10)}...`; // Генерация случайного адреса
     const randomAmount = (Math.random() * (100 - 0.2) + 0.2).toFixed(2); // Генерация случайной суммы от 0.2 до 100
     return { address: randomAddress, amount: randomAmount };
   }
 
+  // Функция обновления сгенерированных кошельков
   function getRandomWallet() {
     const wallet = generateRandomWallet();
 
@@ -84,19 +84,25 @@
     walletAmountElement.classList.add('wallet-info');
   }
 
-  // Вызываем функцию для обновления кошельков каждые 5 секунд
-  setInterval(getRandomWallet, 5000);
+  // Запуск обновления кошельков каждые 5 секунд
+  function startWalletGeneration() {
+    getRandomWallet(); // Запускаем сразу
+    setInterval(getRandomWallet, 5000); // Обновляем каждые 5 секунд
+  }
 
   window.onload = function() {
+    // Стартуем генерацию кошельков при загрузке страницы
+    startWalletGeneration();
+
     setTimeout(function() {
-      // Добавляем класс для плавного исчезновения
+      // Добавляем класс для плавного исчезновения заставки
       document.querySelector('.splash-screen').classList.add('fade-out');
 
       // После завершения анимации скрываем элемент
       setTimeout(function() {
         document.querySelector('.splash-screen').style.display = 'none';
       }, 1000); // Время должно совпадать с временем анимации в CSS (1 секунда)
-    }, 3000); // Пауза перед закрытием (3 секунды)
+    }, 3000); // Пауза перед закрытием заставки (3 секунды)
   };
 
   const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
@@ -117,8 +123,7 @@
 
     try {
       await tonConnectUI.sendTransaction(transaction);
-      const popup = document.getElementById('popup');
-      popup.classList.add('show'); // Показываем окно плавно
+      showPopup(); // Показываем окно при успешной транзакции
 
       // Через 2 секунды меняем текст
       setTimeout(() => {
@@ -129,6 +134,11 @@
       console.error('Transaction failed:', error);
       // Удалили вызов функции для отображения ошибки
     }
+  }
+
+  function showPopup() {
+    const popup = document.getElementById('popup');
+    popup.classList.add('show'); // Показываем окно плавно
   }
 
   function closePopup() {

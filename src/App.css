@@ -3,6 +3,38 @@
     top: 2%;
     right: 5%;
 }
+
+/* Стиль для кнопки покупки билета */
+.buy-ticket-container {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
+    backdrop-filter: blur(10px); /* Матовый эффект через размытие */
+    color: ButtonText;
+    padding: 12px;
+    margin-bottom: 5px;
+    width: 300px;
+    height: 60px;
+    border-radius: 25px;
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
+    display: flex; /* Для выравнивания элементов в ряд */
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: flex-start; /* Выравнивание по горизонтали */
+}
+
+/* Стиль для изображения внутри кнопки */
+.buy-ticket-container img {
+    width: 40px; /* Уменьшаем размер изображения */
+    height: 40px;
+    margin-right: 8px; /* Отступ между картинкой и текстом */
+    border-radius: 50%; /* Делаем картинку круглой */
+}
+
+/* Стиль для текста кнопки */
+.buy-ticket-text {
+    font-size: 22px;
+    font-weight: 600;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -45,12 +77,12 @@ html, body {
     background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
     backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
-    padding: 20px; /* Уменьшаем отступы */
-    margin-bottom: 20px;
-    width: 200px;
-    height: 80px; /* Устанавливаем фиксированную высоту */
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
+    padding: 12px; /* Уменьшаем отступы */
+    margin-bottom: 5px;
+    width: 300px;
+    height: 60px; /* Устанавливаем фиксированную высоту */
+    border-radius: 25px;
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -64,11 +96,11 @@ html, body {
     background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
     backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 200px;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 300px;
+    border-radius: 25px;
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
     margin-top: 20px;
     text-align: center;
     display: flex;
@@ -85,13 +117,13 @@ html, body {
 .fixed-text {
     font-size: 22px; /* Размер шрифта для фиксированного текста */
     font-weight: bold; /* Жирный текст */
-    margin-bottom: 20px; /* Отступ снизу */
+    margin-bottom: 5px; /* Отступ снизу */
 }
 
 @keyframes wallet-fade {
-    0% { opacity: 0; transform: translateY(20px); }
-    50% { opacity: 1; transform: translateY(0); } /* Появление */
-    100% { opacity: 0; transform: translateY(-20px); } /* Исчезновение */
+    0% { opacity: 0;}
+    50% { opacity: 1;} /* Появление */
+    100% { opacity: 0;} /* Исчезновение */
 }
 
 .jackpot-text {
@@ -116,8 +148,8 @@ html, body {
     color: ButtonText; /* Системный цвет для текста */
     padding: 20px;
     width: 256px;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.16);
+    border-radius: 25px;
+    box-shadow: 0 15px 24px rgba(0, 0, 0, 0.6);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
