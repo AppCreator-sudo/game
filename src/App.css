@@ -5,11 +5,11 @@
 }
 .main-container {
     position: absolute; /* Положение относительно родителя */
-    top: 50px; /* Расстояние от верхней границы экрана */
+    top: 90px; /* Расстояние от верхней границы экрана */
     left: 50%; /* Центруем по горизонтали */
     transform: translateX(-50%); /* Смещение влево на 50% ширины контейнера */
     width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     overflow: hidden; /* Скрываем переполнение */
     transition: max-height 0.8s ease, padding 0.8s ease; /* Плавный переход для max-height и padding */
     cursor: pointer;
@@ -44,7 +44,7 @@
     color: ButtonText;
     padding: 12px;
     margin-bottom: 5px;
-    width: 300px;
+    width: 260px;
     height: 60px;
     border-radius: 25px;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
@@ -106,7 +106,7 @@ html, body {
     color: ButtonText;
     padding: 12px; /* Уменьшаем отступы */
 
-    width: 300px;
+    width: 260px;
     height: 60px; /* Устанавливаем фиксированную высоту */
     border-radius: 25px;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
@@ -127,7 +127,7 @@ html, body {
     color: ButtonText;
     padding: 10px;
     margin-bottom: 5px;
-    width: 300px;
+    width: 260px;
     border-radius: 25px;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
     text-align: center;
