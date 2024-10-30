@@ -1,3 +1,6 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
 .connect-wallet-button {
     position: absolute;
     top: 2%;
