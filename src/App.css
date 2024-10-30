@@ -1,12 +1,44 @@
-#Connect {
+.connect-wallet-button {
     position: absolute;
     top: 2%;
     right: 5%;
 }
+.main-container {
+    position: absolute; /* Положение относительно родителя */
+    top: 50px; /* Расстояние от верхней границы экрана */
+    left: 50%; /* Центруем по горизонтали */
+    transform: translateX(-50%); /* Смещение влево на 50% ширины контейнера */
+    width: 100%;
+    max-width: 360px;
+    overflow: hidden; /* Скрываем переполнение */
+    transition: max-height 0.8s ease, padding 0.8s ease; /* Плавный переход для max-height и padding */
+    cursor: pointer;
+    border-radius: 25px;
+    display: flex; /* Flex контейнер */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    gap: 30px; /* Отступы между элементами */
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    align-items: center; /* Выравнивание по горизонтали */
+    max-height: 125px; /* Минимальная высота */
+    box-sizing: border-box; /* Учитываем padding в общей высоте */
+}
+
+/* Стили для развернутого состояния */
+.main-container.expanded {
+    max-height: 500px; /* Максимальная высота при раскрытии */
+    padding: 20px; /* Отступы при раскрытии, не изменяем */
+}
+
+.jackpot-container, .info-container, .buy-ticket-container {
+    width: 100%; /* Ширина 100% для внутренних контейнеров */
+    text-align: center; /* Центрируем текст */
+    flex-shrink: 0; /* Не допускаем сжатия элементов */
+}
 
 /* Стиль для кнопки покупки билета */
 .buy-ticket-container {
-    margin-top: 20px;
     background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
     backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
@@ -15,9 +47,7 @@
     width: 300px;
     height: 60px;
     border-radius: 25px;
-    box-shadow:
-            0 20px 35px rgba(0, 0, 0, 0.6), /* черная тень вниз */
-            0 -10px 20px rgb(255, 255, 255, 0.4); /* белая тень вверх */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
     display: flex; /* Для выравнивания элементов в ряд */
     align-items: center; /* Выравнивание по вертикали */
     justify-content: flex-start; /* Выравнивание по горизонтали */
@@ -25,15 +55,16 @@
 
 /* Стиль для изображения внутри кнопки */
 .buy-ticket-container img {
-    width: 40px; /* Уменьшаем размер изображения */
-    height: 40px;
-    margin-right: 8px; /* Отступ между картинкой и текстом */
+    width: 50px; /* Уменьшаем размер изображения */
+    height: 50px;
+    margin-right: 20px; /* Отступ между картинкой и текстом */
     border-radius: 50%; /* Делаем картинку круглой */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9); /* черная тень вниз */
 }
 
 /* Стиль для текста кнопки */
 .buy-ticket-text {
+    text-align: center;
     font-size: 22px;
     font-weight: 600;
 }
@@ -63,36 +94,34 @@ html, body {
     border: none;
     padding: 0;
     background: none;
-    margin-top: 20px;
 }
 
 .transfer-button img {
     width: 160px;
     height: auto;
 }
-
 .jackpot-container {
     background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
     backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
     padding: 12px; /* Уменьшаем отступы */
-    margin-bottom: 5px;
+
     width: 300px;
     height: 60px; /* Устанавливаем фиксированную высоту */
     border-radius: 25px;
-    box-shadow:
-            0 20px 35px rgba(0, 0, 0, 0.6), /* черная тень вниз */
-            0 -10px 20px rgb(255, 255, 255, 0.4); /* белая тень вверх */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Центрируем текст по вертикали */
-    margin-top: -60px;
 }
 
+.jackpot-text {
+    font-size: 22px;
+}
 
-.wallet-container {
+.info-container {
     background-color: rgba(255, 255, 255, 0.5); /* Прозрачный фон */
     backdrop-filter: blur(10px); /* Матовый эффект через размытие */
     color: ButtonText;
@@ -100,14 +129,27 @@ html, body {
     margin-bottom: 5px;
     width: 300px;
     border-radius: 25px;
-    box-shadow:
-            0 20px 35px rgba(0, 0, 0, 0.6), /* черная тень вниз */
-            0 -10px 20px rgb(255, 255, 255, 0.4); /* белая тень вверх */
-    margin-top: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.instant-lottery-rules {
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.rule {
+    margin: 5px 0; /* Отступы между правилами */
+    font-size: 16px; /* Размер шрифта для правил */
+    font-weight: 400; /* Вес шрифта */
+    color: #333; /* Цвет текста (можете изменить по желанию) */
+}
+
+@keyframes wallet-fade {
+    0% { opacity: 0;}
+    50% { opacity: 1;} /* Появление */
+    100% { opacity: 0;} /* Исчезновение */
 }
 
 .wallet-info {
@@ -120,17 +162,6 @@ html, body {
     font-size: 22px; /* Размер шрифта для фиксированного текста */
     font-weight: bold; /* Жирный текст */
     margin-bottom: 5px; /* Отступ снизу */
-}
-
-@keyframes wallet-fade {
-    0% { opacity: 0;}
-    50% { opacity: 1;} /* Появление */
-    100% { opacity: 0;} /* Исчезновение */
-}
-
-.jackpot-text {
-    font-size: 22px;
-    font-weight: 600;
 }
 
 .jackpot-gif {
@@ -263,7 +294,7 @@ html, body {
 
 /* Градиент приложения */
 body {
-    background: linear-gradient(149deg, rgba(24,187,156,1) 0%, rgba(106,57,175,1) 42%, rgba(187,24,148,1) 72%, rgba(115,53,134,1) 100%);
+    background: linear-gradient(149deg, rgb(255, 255, 255) 0%, rgb(255, 238, 0) 42%, rgb(220, 150, 15) 72%, rgb(0, 0, 0) 100%);
     animation: gradient 10s infinite linear;
     background-size: 400%;
     margin: 0;

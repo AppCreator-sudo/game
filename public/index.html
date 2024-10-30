@@ -10,7 +10,6 @@
   <link rel="icon" href="%PUBLIC_URL%/favicon-16x16.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Lottery App</title>
@@ -27,74 +26,44 @@
 </div>
 <!-- Кнопка подключения кошелька -->
 <div id="Connect" class="connect-wallet-button"></div>
-  <div class="container">
-  <div class="jackpot-container">
-    <p class="jackpot-text">This week's top prize: 50,000 TON</p>
-  </div>
-  <div class="wallet-container">
-    <div class="fixed-text">Winnings of the day:</div>
-    <div class="wallet-info" id="wallet-address"></div>
-    <div class="wallet-info" id="wallet-amount"></div>
-  </div>
 
-  <!-- Кнопка покупки билета -->
-  <div class="buy-ticket-container" onclick="startTransaction()">
-    <img src="lottery-button.png" alt="Ticket Icon"> <!-- Картинка билета -->
-    <span class="buy-ticket-text">Buy one ticket 0.2 TON</span> <!-- Текст -->
-  </div>
+<div class="container">
+  <div class="main-container">
+    <div class="jackpot-container">
+      <div class="jackpot-text">Quick Play</div>
+      <div class="jackpot-text">Top Prize 1,000 TON</div>
+    </div>
 
-<!-- Всплывающее окно -->
-<div id="popup" class="popup">
-  <button class="close-button" onclick="closePopup()">&times;</button>
-  <p id="popup-text">Processing...</p>
-  <div class="popup-img-container">
-    <img src="Animation1.gif" alt="Processing">
-  </div>
-</div>
+    <div class="info-container">
+      <div class="fixed-text">Rules of the game:</div>
+      <div class="instant-lottery-rules">
+        <p class="rule">Buy an instant ticket for 0.2 TON</p>
+        <p class="rule">Possible winnings from 0.2 TON to 1000 TON.</p>
+        <p class="rule">All payments are made automatically to your authorized wallet.</p>
+      </div>
+    </div>
 
+    <!-- Кнопка покупки билета -->
+    <div class="buy-ticket-container" onclick="startTransaction()">
+      <img src="lottery-button.png" alt="Ticket Icon"> <!-- Картинка билета -->
+      <span class="buy-ticket-text">Buy one ticket</span> <!-- Текст -->
+    </div>
+  </div>
+  <!-- Всплывающее окно -->
+  <div id="popup" class="popup">
+    <button class="close-button" onclick="closePopup()">&times;</button>
+    <p id="popup-text">Processing...</p>
+    <div class="popup-img-container">
+      <img src="Animation1.gif" alt="Processing">
+    </div>
+  </div>
 </div>
 
 <script>
-  // Функция для генерации случайного кошелька
-  function generateRandomWallet() {
-    const randomAddress = `EQ${Math.random().toString(36).substring(2, 10)}...`; // Генерация случайного адреса
-    const randomAmount = (Math.random() * (100 - 0.2) + 0.2).toFixed(2); // Генерация случайной суммы от 0.2 до 100
-    return { address: randomAddress, amount: randomAmount };
-  }
-
-  // Функция обновления сгенерированных кошельков
-  function getRandomWallet() {
-    const wallet = generateRandomWallet();
-
-    // Получаем элементы
-    const walletAddressElement = document.getElementById('wallet-address');
-    const walletAmountElement = document.getElementById('wallet-amount');
-
-    // Обновляем текст
-    walletAddressElement.textContent = wallet.address;
-    walletAmountElement.textContent = `${wallet.amount} TON`;
-
-    // Убираем предыдущую анимацию
-    walletAddressElement.classList.remove('wallet-info');
-    walletAmountElement.classList.remove('wallet-info');
-
-    // Перезапускаем анимацию
-    void walletAddressElement.offsetWidth;
-    walletAddressElement.classList.add('wallet-info');
-
-    void walletAmountElement.offsetWidth;
-    walletAmountElement.classList.add('wallet-info');
-  }
-
-  // Запуск обновления кошельков каждые 5 секунд
-  function startWalletGeneration() {
-    getRandomWallet(); // Запускаем сразу
-    setInterval(getRandomWallet, 5000); // Обновляем каждые 5 секунд
-  }
 
   window.onload = function() {
     // Стартуем генерацию кошельков при загрузке страницы
-    startWalletGeneration();
+    //startWalletGeneration();
 
     setTimeout(function() {
       // Добавляем класс для плавного исчезновения заставки
@@ -147,6 +116,41 @@
     const popup = document.getElementById('popup');
     popup.classList.remove('show'); // Скрыть окно плавно
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const collapsibleContainer = document.querySelector('.main-container');
+
+    // Функция для переключения класса "expanded"
+    function toggleExpand() {
+      collapsibleContainer.classList.toggle('expanded');
+    }
+
+    // Открытие при клике на сам контейнер, только если он не открыт
+    collapsibleContainer.addEventListener('click', function (event) {
+      // Проверяем, открыт ли контейнер
+      if (!collapsibleContainer.classList.contains('expanded')) {
+        toggleExpand(); // Разворачиваем, если он закрыт
+      }
+      // Останавливаем всплытие, чтобы не сработал общий обработчик клика
+      event.stopPropagation();
+    });
+
+    // Закрытие при клике вне контейнера
+    document.addEventListener('click', function (event) {
+      if (!collapsibleContainer.contains(event.target)) {
+        collapsibleContainer.classList.remove('expanded');
+      }
+    });
+
+    // Обработчик клика на кнопку покупки билета
+    const buyTicketContainer = document.querySelector('.buy-ticket-container');
+    buyTicketContainer.addEventListener('click', function (event) {
+      event.stopPropagation(); // Останавливаем всплытие только для кнопки покупки
+      startTransaction(); // Запускаем транзакцию при нажатии на кнопку
+    });
+  });
+
+
 </script>
 </body>
 </html>
