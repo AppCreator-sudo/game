@@ -1,6 +1,3 @@
-* {
-    -webkit-tap-highlight-color: transparent;
-}
 .connect-wallet-button {
     position: absolute;
     top: 2%;
@@ -8,14 +5,12 @@
 }
 .main-container {
     position: absolute; /* Положение относительно родителя */
-    top: 90px; /* Расстояние от верхней границы экрана */
+    top: 150px; /* Расстояние от верхней границы экрана */
     left: 50%; /* Центруем по горизонтали */
     transform: translateX(-50%); /* Смещение влево на 50% ширины контейнера */
     width: 100%;
-    max-width: 320px;
+    max-width: 360px;
     overflow: hidden; /* Скрываем переполнение */
-    transition: max-height 0.8s ease, padding 0.8s ease; /* Плавный переход для max-height и padding */
-    cursor: pointer;
     border-radius: 25px;
     display: flex; /* Flex контейнер */
     flex-direction: column; /* Вертикальное расположение элементов */
@@ -24,15 +19,10 @@
     padding: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     align-items: center; /* Выравнивание по горизонтали */
-    max-height: 125px; /* Минимальная высота */
     box-sizing: border-box; /* Учитываем padding в общей высоте */
 }
 
-/* Стили для развернутого состояния */
-.main-container.expanded {
-    max-height: 500px; /* Максимальная высота при раскрытии */
-    padding: 20px; /* Отступы при раскрытии, не изменяем */
-}
+
 
 .jackpot-container, .info-container, .buy-ticket-container {
     width: 100%; /* Ширина 100% для внутренних контейнеров */
@@ -47,7 +37,7 @@
     color: ButtonText;
     padding: 12px;
     margin-bottom: 5px;
-    width: 260px;
+    width: 300px;
     height: 60px;
     border-radius: 25px;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
@@ -109,7 +99,7 @@ html, body {
     color: ButtonText;
     padding: 12px; /* Уменьшаем отступы */
 
-    width: 260px;
+    width: 300px;
     height: 60px; /* Устанавливаем фиксированную высоту */
     border-radius: 25px;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
@@ -130,7 +120,7 @@ html, body {
     color: ButtonText;
     padding: 10px;
     margin-bottom: 5px;
-    width: 260px;
+    width: 300px;
     border-radius: 25px;
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* черная тень вниз */
     text-align: center;
@@ -197,9 +187,12 @@ html, body {
 }
 
 .popup.show {
+    transform: scale(1.1);
     opacity: 1;
     visibility: visible;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
 }
+
 
 .popup .close-button {
     position: absolute;
