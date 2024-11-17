@@ -8,8 +8,7 @@
     top: 150px; /* Расстояние от верхней границы экрана */
     left: 50%; /* Центруем по горизонтали */
     transform: translateX(-50%); /* Смещение влево на 50% ширины контейнера */
-    width: 100%;
-    max-width: 360px;
+    margin: 5% auto;
     overflow: hidden; /* Скрываем переполнение */
     border-radius: 25px;
     display: flex; /* Flex контейнер */
